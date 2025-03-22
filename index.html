@@ -5,93 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empresa de Salud</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #0073e6;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-        nav {
-            margin: 0;
-            padding: 10px;
-            background-color: #005bb5;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .container {
-            padding: 20px;
-        }
-        footer {
-            background-color: #0073e6;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
+        /* Estilos para el botón */
+        #chatbot-button {
             position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #chatbot-button:hover {
+            background-color: #005bb5;
+        }
+
+        /* Estilos para el contenedor del chatbot */
+        #chatbot-container {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none; /* Oculto por defecto */
+        }
+
+        /* Estilos para el iframe del chatbot */
+        #chatbot-iframe {
             width: 100%;
-            bottom: 0;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
+    <!-- Contenido de tu página -->
+    <h1>Bienvenidos a Salud Integral</h1>
+    <p>Tu salud es nuestra prioridad.</p>
 
-    <header>
-        <h1>Bienvenidos a Salud Integral</h1>
-        <p>Tu salud es nuestra prioridad</p>
-    </header>
+    <!-- Botón para abrir el chatbot -->
+    <button id="chatbot-button">Abrir Chat</button>
 
-    <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
-
-    <div class="container">
-        <section id="inicio">
-            <h2>Inicio</h2>
-            <p>En Salud Integral, nos dedicamos a proporcionar atención médica de calidad para toda la familia. Nuestro equipo de profesionales está listo para ayudarte en cualquier necesidad de salud que tengas.</p>
-        </section>
-
-        <section id="servicios">
-            <h2>Servicios</h2>
-            <ul>
-                <li>Consultas médicas generales</li>
-                <li>Exámenes de laboratorio</li>
-                <li>Imágenes diagnósticas</li>
-                <li>Programas de prevención</li>
-            </ul>
-        </section>
-
-        <section id="nosotros">
-            <h2>Nosotros</h2>
-            <p>Somos una clínica con más de 20 años de experiencia en el sector de la salud. Nuestro compromiso es ofrecer un servicio integral y personalizado a cada uno de nuestros pacientes.</p>
-        </section>
-
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <p>Puedes contactarnos en:</p>
-            <p>Teléfono: (123) 456-7890</p>
-            <p>Email: info@saludintegral.com</p>
-            <p>Dirección: Calle Salud 123, Ciudad, País</p>
-        </section>
+    <!-- Contenedor del chatbot -->
+    <div id="chatbot-container">
+        <iframe id="chatbot-iframe" src="about:blank"></iframe>
     </div>
 
-    <footer>
-        <p>&copy; 2023 Salud Integral. Todos los derechos reservados.</p>
-    </footer>
-<script src="https://cdn.pulse.is/livechat/loader.js" data-live-chat-id="67de1a8517f64c8137004eb5" async></script>
+    <!-- Script para cargar el chatbot -->
+    <script>
+        // Obtener referencias a los elementos del DOM
+        const chatbotButton = document.getElementById('chatbot-button');
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const chatbotIframe = document.getElementById('chatbot-iframe');
+
+        // Función para abrir/cerrar el chatbot
+        chatbotButton.addEventListener('click', () => {
+            if (chatbotContainer.style.display === 'none' || chatbotContainer.style.display === '') {
+                // Cargar el chatbot en el iframe
+                chatbotIframe.src = "https://v4n354-bot.tg.pulse.is/";
+                chatbotContainer.style.display = 'block'; // Mostrar el contenedor
+                chatbotButton.textContent = 'Cerrar Chat'; // Cambiar el texto del botón
+            } else {
+                chatbotContainer.style.display = 'none'; // Ocultar el contenedor
+                chatbotButton.textContent = 'Abrir Chat'; // Cambiar el texto del botón
+            }
+        });
+    </script>
 </body>
 </html>
