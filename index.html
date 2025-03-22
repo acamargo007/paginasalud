@@ -4,39 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empresa de Salud</title>
-    <!-- Estilos de Swiper -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <style>
-        /* Estilos generales */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        /* Estilos para el carrusel */
-        .swiper-container {
-            width: 100%;
-            max-width: 800px; /* Ancho máximo del carrusel */
-            margin: 20px auto;
-        }
-
-        .swiper-slide {
-            text-align: center;
-            background: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .swiper-slide img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-
-        /* Estilos para el botón del chatbot */
+        /* Estilos para el botón */
         #chatbot-button {
             position: fixed;
             bottom: 20px;
@@ -81,26 +50,6 @@
     <h1>Bienvenidos a Salud Integral</h1>
     <p>Tu salud es nuestra prioridad.</p>
 
-    <!-- Carrusel de imágenes -->
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="https://via.placeholder.com/800x400?text=Imagen+1" alt="Imagen 1">
-            </div>
-            <div class="swiper-slide">
-                <img src="https://via.placeholder.com/800x400?text=Imagen+2" alt="Imagen 2">
-            </div>
-            <div class="swiper-slide">
-                <img src="https://via.placeholder.com/800x400?text=Imagen+3" alt="Imagen 3">
-            </div>
-        </div>
-        <!-- Botones de navegación -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <!-- Paginación -->
-        <div class="swiper-pagination"></div>
-    </div>
-
     <!-- Botón para abrir el chatbot -->
     <button id="chatbot-button">Abrir Chat</button>
 
@@ -109,37 +58,26 @@
         <iframe id="chatbot-iframe" src="about:blank"></iframe>
     </div>
 
-    <!-- Scripts de Swiper y tu script personalizado -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Script para cargar el chatbot -->
     <script>
-        // Inicializar el carrusel
-        const swiper = new Swiper('.swiper-container', {
-            loop: true, // Permite que el carrusel sea infinito
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-        });
-
-        // Script para el chatbot
+        // Obtener referencias a los elementos del DOM
         const chatbotButton = document.getElementById('chatbot-button');
         const chatbotContainer = document.getElementById('chatbot-container');
         const chatbotIframe = document.getElementById('chatbot-iframe');
 
+        // Función para abrir/cerrar el chatbot
         chatbotButton.addEventListener('click', () => {
             if (chatbotContainer.style.display === 'none' || chatbotContainer.style.display === '') {
-                chatbotIframe.src = ""https://cdn.pulse.is/livechat/loader.js" data-live-chat-id="67de1a8517f64c8137004eb5"";
-                chatbotContainer.style.display = 'block';
-                chatbotButton.textContent = 'Cerrar Chat';
+                // Cargar el chatbot en el iframe
+                chatbotIframe.src = <script src="https://cdn.pulse.is/livechat/loader.js" data-live-chat-id="67de1a8517f64c8137004eb5" async></script>;
+                chatbotContainer.style.display = 'block'; // Mostrar el contenedor
+                chatbotButton.textContent = 'Cerrar Chat'; // Cambiar el texto del botón
             } else {
-                chatbotContainer.style.display = 'none';
-                chatbotButton.textContent = 'Abrir Chat';
+                chatbotContainer.style.display = 'none'; // Ocultar el contenedor
+                chatbotButton.textContent = 'Abrir Chat'; // Cambiar el texto del botón
             }
         });
     </script>
 </body>
 </html>
+
