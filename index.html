@@ -202,27 +202,8 @@
     </footer>
 
     <!-- Script para el chatbot -->
-    <script>
-        // Función para cargar el chatbot
-        function loadChatbot() {
-            const script = document.createElement('script');
-            script.src = "https://cdn.pulse.is/livechat/loader.js";
-            script.setAttribute("data-live-chat-id", "67df0feffd9a5a77720d9878");
-            script.async = true;
-            document.body.appendChild(script);
-        }
-
-        // Obtener el botón del chatbot
-        const chatbotButton = document.getElementById('chatbot-button');
-
-        // Cargar el chatbot al hacer clic en el botón
-        chatbotButton.addEventListener('click', () => {
-            loadChatbot();
-            chatbotButton.disabled = true;
-            chatbotButton.textContent = "Chat abierto";
-        });
-    </script>
-
+    
+        
     <script src="https://cdn.pulse.is/livechat/loader.js" data-live-chat-id="67df0feffd9a5a77720d9878" async></script>
 </body>
 </html>
