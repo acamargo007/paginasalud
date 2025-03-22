@@ -1,83 +1,224 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Configuración básica del documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empresa de Salud</title>
+    <title>Salud Integral - Servicios de Salud</title>
+    <!-- Estilos CSS -->
     <style>
-        /* Estilos para el botón */
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: #0073e6; /* Fondo azul */
+            color: white; /* Texto blanco */
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem; /* Tamaño grande para el título */
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2rem; /* Tamaño mediano para el subtítulo */
+        }
+
+        /* Barra de navegación */
+        nav {
+            background-color: #005bb5; /* Fondo azul más oscuro */
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white; /* Texto blanco */
+            margin: 0 15px;
+            text-decoration: none; /* Sin subrayado */
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline; /* Subrayado al pasar el mouse */
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 1200px; /* Ancho máximo del contenido */
+            margin: 20px auto; /* Centrado en la página */
+            padding: 20px;
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+
+        /* Mensaje de afiliación */
+        .affiliation-message {
+            background-color: #e6f3ff; /* Fondo azul claro */
+            padding: 20px;
+            border-radius: 10px; /* Bordes redondeados */
+            text-align: center;
+            margin-bottom: 20px; /* Espacio inferior */
+        }
+
+        .affiliation-message h2 {
+            color: #0073e6; /* Texto azul */
+            font-size: 1.8rem; /* Tamaño grande */
+            margin-bottom: 10px; /* Espacio inferior */
+        }
+
+        .affiliation-message p {
+            font-size: 1.1rem; /* Tamaño mediano */
+            line-height: 1.5; /* Espaciado entre líneas */
+        }
+
+        /* Sección de servicios */
+        .services {
+            display: flex;
+            justify-content: space-around; /* Distribución uniforme */
+            flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+            margin-top: 20px; /* Espacio superior */
+        }
+
+        .service {
+            background-color: #f9f9f9; /* Fondo gris claro */
+            padding: 20px;
+            border-radius: 10px; /* Bordes redondeados */
+            width: 45%; /* Ancho de cada tarjeta */
+            margin-bottom: 20px; /* Espacio inferior */
+            text-align: center;
+            border: 1px solid #ddd; /* Borde sutil */
+        }
+
+        .service h2 {
+            color: #0073e6; /* Texto azul */
+            font-size: 1.5rem; /* Tamaño mediano */
+        }
+
+        .service p {
+            font-size: 1rem; /* Tamaño pequeño */
+            line-height: 1.5; /* Espaciado entre líneas */
+        }
+
+        /* Botón del chatbot */
         #chatbot-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #0073e6;
-            color: white;
+            position: fixed; /* Fijo en la pantalla */
+            bottom: 20px; /* Distancia desde la parte inferior */
+            right: 20px; /* Distancia desde la derecha */
+            background-color: #0073e6; /* Fondo azul */
+            color: white; /* Texto blanco */
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
+            padding: 15px 30px;
+            border-radius: 50px; /* Bordes redondeados */
+            cursor: pointer; /* Cambia el cursor al pasar el mouse */
+            font-size: 1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
         }
 
         #chatbot-button:hover {
-            background-color: #005bb5;
+            background-color: #005bb5; /* Cambia el color al pasar el mouse */
         }
 
-        /* Estilos para el contenedor del chatbot */
-        #chatbot-container {
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            width: 350px;
-            height: 500px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: none; /* Oculto por defecto */
+        /* Pie de página */
+        footer {
+            background-color: #0073e6; /* Fondo azul */
+            color: white; /* Texto blanco */
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 40px; /* Espacio superior */
         }
 
-        /* Estilos para el iframe del chatbot */
-        #chatbot-iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 10px;
+        footer p {
+            margin: 0;
         }
     </style>
 </head>
 <body>
-    <!-- Contenido de tu página -->
-    <h1>Bienvenidos a Salud Integral</h1>
-    <p>Tu salud es nuestra prioridad.</p>
+    <!-- Encabezado -->
+    <header>
+        <h1>Salud Integral</h1>
+        <p>Tu salud es nuestra prioridad</p>
+    </header>
 
-    <!-- Botón para abrir el chatbot -->
-    <button id="chatbot-button">Abrir Chat</button>
+    <!-- Barra de navegación -->
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
 
-    <!-- Contenedor del chatbot -->
-    <div id="chatbot-container">
-        <iframe id="chatbot-iframe" src="about:blank"></iframe>
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Mensaje de afiliación -->
+        <div class="affiliation-message">
+            <h2>¡Afíliate a Salud Integral!</h2>
+            <p>
+                Para acceder a nuestros servicios de salud, debes afiliarte a nuestra empresa. 
+                Comunícate con nuestro chatbot para obtener más información y realizar tu afiliación.
+            </p>
+        </div>
+
+        <!-- Sección de servicios -->
+        <section id="servicios">
+            <h2>Nuestros Servicios</h2>
+            <div class="services">
+                <!-- Servicio de consultas -->
+                <div class="service">
+                    <h2>Consultas Médicas</h2>
+                    <p>
+                        Ofrecemos consultas médicas generales y especializadas con profesionales altamente calificados. 
+                        Agenda tu cita y recibe atención personalizada.
+                    </p>
+                </div>
+
+                <!-- Servicio de laboratorios -->
+                <div class="service">
+                    <h2>Laboratorios</h2>
+                    <p>
+                        Realiza tus exámenes de laboratorio con nosotros. Contamos con tecnología de punta y resultados 
+                        confiables en el menor tiempo posible.
+                    </p>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <!-- Script para cargar el chatbot -->
+    <!-- Botón del chatbot -->
+    <button id="chatbot-button">¿Necesitas ayuda? Chatea con nosotros</button>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2023 Salud Integral. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Script para el chatbot -->
     <script>
         // Obtener referencias a los elementos del DOM
         const chatbotButton = document.getElementById('chatbot-button');
-        const chatbotContainer = document.getElementById('chatbot-container');
-        const chatbotIframe = document.getElementById('chatbot-iframe');
 
-        // Función para abrir/cerrar el chatbot
+        // Función para abrir el chatbot
         chatbotButton.addEventListener('click', () => {
-            if (chatbotContainer.style.display === 'none' || chatbotContainer.style.display === '') {
-                // Cargar el chatbot en el iframe
-                chatbotIframe.src = <script src="https://cdn.pulse.is/livechat/loader.js" data-live-chat-id="67de1a8517f64c8137004eb5" async></script>;
-                chatbotContainer.style.display = 'block'; // Mostrar el contenedor
-                chatbotButton.textContent = 'Cerrar Chat'; // Cambiar el texto del botón
-            } else {
-                chatbotContainer.style.display = 'none'; // Ocultar el contenedor
-                chatbotButton.textContent = 'Abrir Chat'; // Cambiar el texto del botón
-            }
+            // Cargar el script del chatbot
+            const script = document.createElement('script');
+            script.src = "https://cdn.pulse.is/livechat/loader.js" ;
+            script.setAttribute("data-live-chat-id="67de1a8517f64c8137004eb5");
+            script.async = true;
+            document.body.appendChild(script);
+
+            // Deshabilitar el botón después de hacer clic
+            chatbotButton.disabled = true;
+            chatbotButton.textContent = "Chat abierto";
         });
     </script>
 </body>
 </html>
-
